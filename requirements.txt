@@ -1,0 +1,15 @@
+# Inferred from notebook imports, not an original environment lock.
+# Suggested starting interpreter: Python 3.11; full retraining not validated.
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+statsmodels
+scikit-learn
+holidays
+tensorflow
+keras-tuner
+optuna
+shap
+jupyterlab

@@ -1,0 +1,155 @@
+{
+  "source_notebook": "AirQuality中文版_.ipynb",
+  "source_notebook_sha256": "9119c42fac0f510285ee0e60b6b53718546590a8abeeca285c9081cc0f66a45f",
+  "cell_index_convention": "zero_based",
+  "metrics_status": "saved_outputs_only_not_retrained",
+  "syntax_errors": [],
+  "inputs": {
+    "AirQualityUCI.csv": {
+      "sha256": "52690e4d44e65cb651cc8c68009c950fe94ea1ddda67d588780b64c4ecf81c23",
+      "rows_nonempty": 9357,
+      "time_min": "2004-03-10T18:00:00",
+      "time_max": "2005-04-04T14:00:00",
+      "duplicate_timestamps": 0,
+      "columns": [
+        "Date",
+        "Time",
+        "CO(GT)",
+        "PT08.S1(CO)",
+        "NMHC(GT)",
+        "C6H6(GT)",
+        "PT08.S2(NMHC)",
+        "NOx(GT)",
+        "PT08.S3(NOx)",
+        "NO2(GT)",
+        "PT08.S4(NO2)",
+        "PT08.S5(O3)",
+        "T",
+        "RH",
+        "AH",
+        "",
+        ""
+      ]
+    },
+    "Rome_meteo.csv": {
+      "sha256": "6df41745b608519689554a2d9420460bd2b1aebb641c3ccd447f7bf067804558",
+      "rows_nonempty": 9384,
+      "time_min": "2004-03-10T00:00:00",
+      "time_max": "2005-04-04T23:00:00",
+      "duplicate_timestamps": 0,
+      "columns": [
+        "time",
+        "precipitation (mm)",
+        "cloud_cover (%)",
+        "wind_speed_10m (km/h)",
+        "terrestrial_radiation (W/m²)",
+        "pressure_msl (hPa)",
+        "soil_temperature_0_to_7cm (°C)"
+      ]
+    },
+    "merged_df.csv": {
+      "sha256": "4106e97851979db71762a905d194a761591d5d40e611b6d96bd1508efb9fac63",
+      "rows_nonempty": 9357,
+      "time_min": "2004-03-10T18:00:00",
+      "time_max": "2005-04-04T14:00:00",
+      "duplicate_timestamps": 0,
+      "columns": [
+        "Date",
+        "Time",
+        "CO(GT)",
+        "NMHC(GT)",
+        "C6H6(GT)",
+        "NOx(GT)",
+        "NO2(GT)",
+        "T",
+        "RH",
+        "AH",
+        "precipitation (mm)",
+        "cloud_cover (%)",
+        "wind_speed_10m (km/h)",
+        "terrestrial_radiation (W/m²)",
+        "pressure_msl (hPa)",
+        "soil_temperature_0_to_7cm (°C)",
+        "I_CO",
+        "I_NMHC",
+        "I_C6H6",
+        "I_NOx",
+        "I_NO2",
+        "AQI",
+        "datetime"
+      ]
+    }
+  },
+  "metrics": [
+    {
+      "model": "SARIMA (2,1,2)(0,1,0,24)",
+      "cell_index": 68,
+      "protocol": "rolling_1_step",
+      "rmse": 33.3,
+      "mae": 21.95
+    },
+    {
+      "model": "SARIMA (2,1,2)(2,1,2,24)",
+      "cell_index": 73,
+      "protocol": "rolling_1_step",
+      "rmse": 26.05,
+      "mae": 17.32
+    },
+    {
+      "model": "SARIMAX",
+      "cell_index": 82,
+      "protocol": "fixed_origin_with_observed_exogenous",
+      "rmse": 59.03,
+      "mae": 45.1
+    },
+    {
+      "model": "Random Forest (final saved fit)",
+      "cell_index": 91,
+      "protocol": "tabular_with_observed_exogenous",
+      "rmse": 46.22735230567575,
+      "r2": 0.4200031591068052
+    },
+    {
+      "model": "Gradient Boosting",
+      "cell_index": 98,
+      "protocol": "tabular_with_observed_exogenous",
+      "rmse": 48.367367450389175,
+      "r2": 0.36506029051724354
+    },
+    {
+      "model": "Bagging",
+      "cell_index": 103,
+      "protocol": "tabular_with_observed_exogenous",
+      "rmse": 47.988424175643516,
+      "r2": 0.3749704265580246
+    },
+    {
+      "model": "MLP",
+      "cell_index": 119,
+      "protocol": "tabular_test_used_for_validation",
+      "mae": 32.891937255859375,
+      "mse": 2224.084716796875
+    },
+    {
+      "model": "LSTM (1 timestep)",
+      "cell_index": 129,
+      "protocol": "one_timestep_test_used_for_validation",
+      "mae": 33.91056442260742,
+      "mse": 2260.19970703125
+    },
+    {
+      "model": "GRU (1 timestep)",
+      "cell_index": 139,
+      "protocol": "one_timestep_test_used_for_validation",
+      "mae": 31.840377807617188,
+      "mse": 2158.959716796875
+    },
+    {
+      "model": "GRU (24 timestep supplement)",
+      "cell_index": 158,
+      "protocol": "24_timestep_test_used_for_validation",
+      "mae": 29.830888748168945,
+      "mse": 1658.1510009765625
+    }
+  ]
+}

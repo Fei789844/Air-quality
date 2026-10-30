@@ -1,0 +1,11 @@
+model,cell_index,protocol,rmse,mae,mse,r2
+"SARIMA (2,1,2)(0,1,0,24)",68,rolling_1_step,33.3,21.95,,
+"SARIMA (2,1,2)(2,1,2,24)",73,rolling_1_step,26.05,17.32,,
+SARIMAX,82,fixed_origin_with_observed_exogenous,59.03,45.1,,
+Random Forest (final saved fit),91,tabular_with_observed_exogenous,46.22735230567575,,,0.4200031591068052
+Gradient Boosting,98,tabular_with_observed_exogenous,48.367367450389175,,,0.36506029051724354
+Bagging,103,tabular_with_observed_exogenous,47.988424175643516,,,0.3749704265580246
+MLP,119,tabular_test_used_for_validation,,32.891937255859375,2224.084716796875,
+LSTM (1 timestep),129,one_timestep_test_used_for_validation,,33.91056442260742,2260.19970703125,
+GRU (1 timestep),139,one_timestep_test_used_for_validation,,31.840377807617188,2158.959716796875,
+GRU (24 timestep supplement),158,24_timestep_test_used_for_validation,,29.830888748168945,1658.1510009765625,
