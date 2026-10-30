@@ -45,3 +45,7 @@ Notebook 包含耗时的 SARIMA 拟合和深层神经网络训练。Keras Tuner�
 ## 整理版本的验证范围
 
 本次验证包括原文件指纹保留、代码单元格语法、CSV 结构、保存指标提取及新增文档的本地链接。没有重新安装完整训练环境、训练模型或生成新的性能结论。结果文档中采用的数值来自当前仓库的中法双语 Notebook，不混入其他本地历史版本。
+
+## 首页预测图
+
+运行 `python scripts/export_figures.py` 可从保存输出中提取 SARIMA、随机森林和补充 GRU 预测图，不依赖绘图库、不重新训练。导出的 PNG 保留原始字节，来源单元格及 SHA-256 见 `assets/figures/manifest.json`。GRU 原图纵轴模板文字与实际 AQI 目标不同，README 图注已说明。

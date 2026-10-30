@@ -6,6 +6,30 @@ Air quality forecasting with UCI measurements and Rome reference weather data.
 
 作者：Kaiwei HUANG、Fei WANG、Jiaxuan YU。原报告标注为 ISUP Master 2，2026 年 1 月。
 
+## 模型预测效果
+
+以下图像直接提取自 Notebook 已保存的输出，蓝色或黑色为真实值，橙色或红色为预测值。
+
+### SARIMA：逐小时滚动预测
+
+![SARIMA 滚动一步预测与真实 AQI 对比](assets/figures/sarima-rolling-forecast.png)
+
+SARIMA (2,1,2)(2,1,2,24)，测试区间 RMSE 26.05、MAE 17.32。横轴为观测时间，纵轴为项目自定义 AQI；每预测一步后使用真实观测更新状态。
+
+### 随机森林：测试区间预测
+
+![随机森林测试区间预测与真实 AQI 对比](assets/figures/random-forest-forecast.png)
+
+黑线为真实 AQI，红线为预测 AQI；最终保存拟合的 RMSE 为 46.23。该分支使用测试时间点的气象及历史滞后特征，输入条件与滚动 SARIMA 不同。
+
+### GRU：24 步窗口补充实验
+
+![GRU 24 步窗口的训练与测试片段对比](assets/figures/gru-24h-forecast.png)
+
+左图为训练集、右图为测试集的前 360 个样本，蓝线为真实值，橙线为预测值。整个测试集保存 MSE 为 1658.15、MAE 为 29.83。原图纵轴沿用了模板文字 `Appliances Consumption`，此处实际预测的是自定义 AQI；横轴为样本序号。各分支的评价条件见[结果说明](docs/RESULTS.md)。
+
+图片来源、原始单元格和 SHA-256 记录在[图片清单](assets/figures/manifest.json)；运行 `python scripts/export_figures.py` 可重新提取原图，无需训练。
+
 ## 阅读入口
 
 - [完整中法双语 Notebook](AirQuality中文版_.ipynb)：代码、方法解释和已保存的运行结果。
@@ -90,6 +114,7 @@ Air-quality/
 ├── AirQualityUCI.csv           # 污染物与温湿度观测
 ├── Rome_meteo.csv              # Rome 参考气象数据
 ├── merged_df.csv               # 原项目导出的中间数据
+├── assets/figures/            # README 预测图与来源清单
 ├── docs/
 │   ├── DATA.md
 │   ├── RESULTS.md
@@ -98,7 +123,8 @@ Air-quality/
 │   ├── evidence.json           # 数据指纹、指标来源与语法检查
 │   └── saved_metrics.csv
 └── scripts/
-    └── inspect_project.py
+    ├── inspect_project.py
+    └── export_figures.py
 ```
 
 ## 数据来源与引用

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "assets/figures/sarima-rolling-forecast.png",
+    "source_notebook": "AirQuality中文版_.ipynb",
+    "cell_index": 74,
+    "output_index": 0,
+    "caption": "SARIMA (2,1,2)(2,1,2,24), rolling one-step forecast",
+    "sha256": "9f9d4de00004eb810a370654b5285e892db30a3248d6261d6b258173d66cabcc"
+  },
+  {
+    "file": "assets/figures/random-forest-forecast.png",
+    "source_notebook": "AirQuality中文版_.ipynb",
+    "cell_index": 93,
+    "output_index": 0,
+    "caption": "Random Forest, saved test predictions",
+    "sha256": "082a3fd0476943a2b7d1cbd721cae870f9990d2f9a64b45e0407b4bfbe5902d0"
+  },
+  {
+    "file": "assets/figures/gru-24h-forecast.png",
+    "source_notebook": "AirQuality中文版_.ipynb",
+    "cell_index": 159,
+    "output_index": 1,
+    "caption": "Supplementary GRU, first 360 train/test samples",
+    "sha256": "2745120e5749ca4647b6e11d5d379cfe5fc2d88cae07a23933c65f65bda76671"
+  }
+]
